@@ -1,0 +1,69 @@
+<h1>
+    <title>Registration Form</title>
+</h1>
+<h1>Registration Form</h1>
+<form action="/process" method="post">
+    <div>
+        <label>First Name: * </label>
+        <input type="text" name="first_name" required>
+    </div>
+    <div>
+        <label>Last Name: * </label>
+        <input type="text" name="last_name" required>
+    </div>
+    <div>
+        <label>Email: * </label>
+        <input type="text" name="email" required>
+    </div>
+    <div>
+        <label>Password: * </label>
+        <input type="password" name="password" required>
+    </div>
+    <div>
+        <label>Confirm Password: * </label>
+        <input type="password" name="confirmPassword" required>
+    </div>
+    <div>
+        <label>Birthday: </label>
+        <input type="date" name="birthday">
+    </div>
+    <div>
+        <Label>Gender Identity</Label>
+    </div>
+    <div>
+        <input type="radio" name="genderIdentityMale">
+        <label>Male</label>
+        <input type="radio" name="genderIdentityFemale">
+        <label>Female</label>
+        <input type="radio" name="genderIdentityNonBinary">
+        <label>Non-binary</label>
+        <input type="radio" name="genderIdentityPreferNotToAnswer">
+        <label>I prefer not to answer</label>
+    </div>
+    <div>
+        <label>A short description about myself:</label>
+    </div>
+    <div>
+        <textarea name="aboutMyself" id="descriptionAboutMyself" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+        <label>Favorite Language: </label>
+        <select name="language">
+            <option>JavaScript</option>
+            <option>C#</option>
+            <option>C++</option>
+            <option>Python</option>
+        </select>
+    </div>
+    <div>
+        <input type="checkbox" name="offers" 
+        id="offers" checked >
+        <label for="offers">Yes, I would like 
+        to receive periodic email updates</label>
+    </div>
+    <div>
+        <input type="submit" value="Create Account">
+    </div>
+    <div>* Indicates a required field</div>
+
+</form>
