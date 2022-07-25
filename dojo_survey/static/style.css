@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-family: sans-serif;
+    flex-wrap: wrap;
+}
+.container{
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+    height: 500px;
+    margin: 100px;
+    border: solid black .25rem;
+}
+label, select, input {
+    margin: 25px;
+}
+div.comment{
+    margin: 25px;
+}
