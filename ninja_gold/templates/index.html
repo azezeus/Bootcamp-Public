@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static\style.css">
+    <title>Ninja Money</title>
+</head>
+<body>
+    <div class="container">
+        <label>Your Gold:</label>
+        <h1>{{session['total_gold']}}</h1>
+        <div class="forms">
+            <div class="for">
+                <h2>Farm</h2>
+                <p>(earns 10-20 golds)</p>
+                <form action = "/process_money" method ="post" class="place" id="farm">
+                <input name = "building" value = "farm_gold" type="hidden">
+                <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+            <div class="for">
+                <h2>Cave</h2>
+                <p>(earns 10-20 golds)</p>
+                <form action = "/process_money" method ="post" class="place" id="cave">
+                <input name = "building" value ="cave_gold" type="hidden">
+                <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+            <div class="for">
+                <h2>House</h2>
+                <p>(earns 10-20 golds)</p>
+                <form action = "/process_money" method ="post" class="place" id="house">
+                <input name = "building" value ="house_gold" type="hidden">
+                <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+            <div class="for">
+                <h2>Casino</h2>
+                <p>(earns 10-20 golds)</p>
+                <form action = "/process_money" method ="post" class="place" id="casino">
+                <input name = "building" value ="casino_gold" type="hidden">
+                <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+        </div>
+        <h1>Activities:</h1>
+        <p class = "message">{{session['activities']|safe}}</p>
+    </div>
+</body>
+</html>

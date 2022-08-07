@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+label,h1{
+    font-size: 1rem;
+    font-weight: bold;
+}
+span{
+    font-size: 1rem;
+}
+div.container{
+    display: block;
+    width: 80%;
+    margin: 100px;
+}
+div.forms{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+.for{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: solid black 5px;
+    flex-wrap: wrap;
+    width: 200px;
+    margin: 20px;
+}
+    div.for:first-child{
+        margin-left: 0;
+    }
+    div.for:last-child{
+        margin-right: 0;
+    }
+    h2{
+        padding: 20px;
+    }
+    p{
+        width: 150px;
+        padding: 20px;
+    }
+    input{
+        height: 30px;
+        width: 100px;
+        margin: 20px;
+        box-shadow: 0px 5px 10px 0px goldenrod;
+        border: darkgoldenrod 2px solid;
+        background-color: none;
+    }
+p.message{
+    width: 100%;
+}
