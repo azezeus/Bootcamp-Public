@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Cookie Orders</title>
+</head>
+<body>
+    <form action="/order/update" method="post" class="col-6 mx-auto">
+        <h2 class="text-center">Change Order</h2>
+        <a class="text-right" href="/cookies"> Back to Purchases </a>
+        {% with messages = get_flashed_messages() %}    <!-- declare a variable called messages -->
+            {% if messages %}                               <!-- check if there are any messages -->
+                {% for message in messages %}               <!-- loop through the messages -->
+                    <p>{{message}}</p>                      <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <input type="hidden" name="id" value={{order.id}}>
+        <div class="form-group">
+            <label for="customer_name">Customer Name:</label>
+            <input type="text" name="customer_name"  class="form-control" value="{{order.customer_name}}">
+        </div>
+        <div class="form-group">
+            <label for="cookie_type">Cooke Type:</label>
+            <input type="text" name="cookie_type"  class="form-control" value="{{order.cookie_type}}">
+        </div>
+        <div class="form-group">
+            <label for="number_of_boxes">Number of Boxes:</label>
+            <input type="text" name="number_of_boxes"  class="form-control" value="{{order.number_of_boxes}}">
+        </div>
+        <input type="submit" value="Log" class="btn btn-success">
+        <a href="/order/edit/{{order.id}}"></a>
+    </form>
+</body>
+</html>
