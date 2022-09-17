@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Recipe Share</title>
+</head>
+<body>
+    <div class="card-body">
+        <h2 class="card-title text-primary">Welcome, {{user.first_name}}</h2>
+        <p>All posted recipes:</p>
+        <div class="justify-content-right">
+            <a href="/recipe/new" class="text-right w-25">+ Create</a>
+            <a href="/logout" class="text-right w-25">logout</a>
+        </div>
+        <table class="table table-info">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Under 30 min?</th>
+                    <th>Posted By</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recipe in recipes %}
+                <tr>
+                    <td>{{ recipe.recipe_name }}</td>
+                    <td>{{ recipe.under_thirty }}</td>
+                    <td>{{ recipe.baker.first_name }}</td>
+                    <td>
+                        <a href="/show/{{recipe.id}}">View Recipe</a>
+                        {% if user.id == recipe.users_id %}
+                            <a href="/edit/{{recipe.id}}">| Edit</a> 
+                            <a href="/recipe/delete/{{recipe.id}}">| Delete</a>
+                        {%else%}
+                        {% endif%}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</body>
+</html>
