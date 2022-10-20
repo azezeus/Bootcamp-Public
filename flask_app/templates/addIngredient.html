@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        div{
+            background-color: black;
+        }
+            div.navbar{
+                background-color: rgb(112, 4, 67);
+            }
+                div.links{
+                    background-color: white;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    border: 2px solid black;
+                }
+        div.selection{
+            background-color: white;
+            padding-bottom: 10px;
+        }
+        button.btn{
+            color: black;
+            background-color: powderblue;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Recipe Share</title>
+</head>
+<body>
+    <div class="card-body">
+        <div class="navbar">
+            <h1 class="text-light">Add Ingredients</h1>
+            <div class="links">
+                <a href="/logout"> Logout </a>
+                <span>|</span>
+                <a href="/recipe/new">Create a Recipe </a>
+                <span>|</span>
+                <a href="/dashboard"> Dashboard </a>
+            </div>
+        </div>
+        <form action="/addIngredients" method="post" class="col-6 mx-auto">
+            {% with messages = get_flashed_messages() %}    <!-- declare a variable called messages -->
+                {% if messages %}                               <!-- check if there are any messages -->
+                <div class="alert alert-danger" role="alert">    
+                    {% for message in messages %}               <!-- loop through the messages -->
+                        <p>{{ message }}</p>                      <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            <div class="form-group bg-white p-1 rounded ">
+                <label for="protein_name">Protein Name:</label>
+                <input type="text" name="protein_name"  class="form-control" required>
+                <label for="calories">Calories per serving:</label>
+                <input type="number" name="calories"  class="form-control" required>
+                <label for="macros">Grams of Protein/Fiber per serving:</label>
+                <input type="number" name="macros"  class="form-control" required>
+                <label for="diet">Vegan or Vegetarian:</label>
+                <div class="selection">
+                    <select name="diet" id="diet">
+                        <option value="Neither">Neither</option>
+                        <option value="Vegan">Vegan</option>
+                        <option value="Vegetarian">Vegetarian</option>
+                    </select>
+                </div>
+                <button class="btn">Add Ingredient</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
