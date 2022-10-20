@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Recipe Share</title>
+    <style>
+        div{
+            background-color: black;
+        }
+            div.navbar{
+                background-color: rgb(112, 4, 67);
+            }
+                div.links{
+                    background-color: white;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    border: 2px solid black;
+                }
+        button.btn{
+            color: black;
+            background-color: powderblue;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1 class="text-light">Log In/Register</h1>
+    </div>
+    <div class="d-flex justify-content-around">
+        <form action="/register" method="post" class="col-4 bg-dark p-5 my-5 text-light">
+            <h2 class="text-center text-white">Register</h2>
+            {% with messages = get_flashed_messages(category_filter=['register']) %}    <!-- declare a variable called messages -->
+                {% if messages %}                               <!-- check if there are any messages -->
+                <div class="alert alert-danger" role="alert">
+                    {% for message in messages %}               <!-- loop through the messages -->
+                        <p>{{message}}</p>                      <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                </div>
+                    {% endif %}
+            {% endwith %}
+            <div class="form-group bg-dark">
+                <label for="first_name" class="col-3 text-nowrap">First Name:</label>
+                <input type="first_name" name="first_name" class="form-control">
+                <label for="last_name" class="col-3 text-nowrap">Last Name:</label>
+                <input type="last_name" name="last_name" class="form-control">
+                <label for="email" class="col-3 text-nowrap">Email:</label>
+                <input type="email" name="email" class="form-control">
+                <label for="color_icon" class="col-3 text-nowrap">Icon Color:</label>
+                <input type="color" name="color_icon" class="form-control">
+                <label for="password" class="col-3 text-nowrap">Password:</label>
+                <input type="password" name="password" class="form-control">
+                <label for="confirm_password" class="col-3 text-nowrap">Confirm Password:</label>
+                <input type="password" name="confirm_password" class="form-control">
+                <button class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="d-flex justify-content-around">
+        <form action="/login" method="post" class="col-4 bg-dark p-5 my-5 text-light">
+            <h2 class="text-center text-white">Login</h2>
+            {% with messages = get_flashed_messages(category_filter=['login']) %}    <!-- declare a variable called messages -->
+                {% if messages %}                               <!-- check if there are any messages -->
+                <div class="alert alert-danger" role="alert">
+                {% for message in messages %}               <!-- loop through the messages -->
+                        <p>{{message}}</p>                      <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                </div>
+                    {% endif %}
+            {% endwith %}
+            <div class="form-group bg-dark">
+                <label for="email" class="col-3">Email:</label>
+                <input type="email" name="email" class="form-control">
+                <label for="password" class="col-3">Password:</label>
+                <input type="password" name="password" class="form-control">
+                <button class="btn">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
